@@ -1,0 +1,19 @@
+{
+  "name": "vibe-ide",
+  "version": "0.1.0",
+  "description": "Multi-terminal IDE for vibe coding",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-rebuild -f -w node-pty && bash scripts/patch-permissions.sh && bash scripts/install-whisper.sh"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "node-pty": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.0",
+    "electron": "^34.0.0"
+  }
+}
