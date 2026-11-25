@@ -276,6 +276,7 @@ function buildFilledCell(id, project) {
   const cell = document.createElement('div');
   cell.className = 'cell filled';
   cell.dataset.id = id;
+  cell.dataset.role = project.activeTab || 'design';
 
   const tabsHtml = ROLES.map((role) => {
     const active = project.activeTab === role;
@@ -349,14 +350,32 @@ async function mountTab(cell, slotId, project, role) {
   body.appendChild(pane);
 
   const term = new Terminal({
-    fontFamily: 'Menlo, Monaco, "Courier New", monospace',
+    fontFamily: '"SF Mono", Menlo, Monaco, "Courier New", monospace',
     fontSize: 13,
+    lineHeight: 1.22,
     cursorBlink: true,
     theme: {
       background: '#0a0c10',
       foreground: '#e5e7eb',
       cursor: '#60a5fa',
+      cursorAccent: '#0a0c10',
       selectionBackground: 'rgba(91, 140, 255, 0.28)',
+      black: '#1f2430',
+      red: '#f87171',
+      green: '#4ade80',
+      yellow: '#fbbf24',
+      blue: '#60a5fa',
+      magenta: '#c084fc',
+      cyan: '#22d3ee',
+      white: '#e5e7eb',
+      brightBlack: '#6b7280',
+      brightRed: '#fca5a5',
+      brightGreen: '#86efac',
+      brightYellow: '#fde047',
+      brightBlue: '#93c5fd',
+      brightMagenta: '#d8b4fe',
+      brightCyan: '#67e8f9',
+      brightWhite: '#f9fafb',
     },
     scrollback: 10000,
     allowProposedApi: true,
@@ -527,6 +546,7 @@ function updateGridLayout() {
 }
 
 function showActiveTab(cell, project) {
+  cell.dataset.role = project.activeTab || 'design';
   const body = cell.querySelector('.cell-body');
   const meta = cell.querySelector('.meta');
   cell.querySelectorAll('.tab').forEach((t) => {

@@ -622,6 +622,10 @@ function createWindow() {
     height: 1000,
     backgroundColor: '#0b0d11',
     title: 'vibe-ide',
+    ...(process.platform === 'darwin' ? {
+      titleBarStyle: 'hiddenInset',
+      trafficLightPosition: { x: 14, y: 11 },
+    } : {}),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,

@@ -49,10 +49,15 @@
       align-items: center;
       justify-content: space-between;
       background: var(--bg-topbar);
-      padding: 5px 12px;
+      padding: 5px 12px 5px 80px;
       border-bottom: 1px solid var(--border-subtle);
       flex-shrink: 0;
-      min-height: 34px;
+      min-height: 36px;
+      -webkit-app-region: drag;
+    }
+    #topbar button,
+    #topbar .topbar-right {
+      -webkit-app-region: no-drag;
     }
     #topbar .brand {
       display: inline-flex;
@@ -156,6 +161,41 @@
       border-color: rgba(91, 140, 255, 0.6);
       box-shadow: 0 0 0 1px rgba(91, 140, 255, 0.18), 0 8px 24px rgba(0, 0, 0, 0.35);
     }
+    .cell.focused[data-role="design"] {
+      border-color: rgba(167, 139, 250, 0.6);
+      box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.2), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .cell.focused[data-role="dev"] {
+      border-color: rgba(96, 165, 250, 0.62);
+      box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.2), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .cell.focused[data-role="review"] {
+      border-color: rgba(52, 211, 153, 0.58);
+      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.18), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .cell.focused[data-role="test"] {
+      border-color: rgba(251, 191, 36, 0.55);
+      box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.16), 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    ::-webkit-scrollbar,
+    .xterm-viewport::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track,
+    .xterm-viewport::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb,
+    .xterm-viewport::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover,
+    .xterm-viewport::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
     .cell.notify-firing {
       border-color: #f59e0b !important;
       box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4), 0 0 22px rgba(245, 158, 11, 0.3);
@@ -216,7 +256,7 @@
     .voice-btn {
       position: absolute;
       right: 14px;
-      bottom: 23px;
+      bottom: 31px;
       width: 28px;
       height: 28px;
       padding: 0;
